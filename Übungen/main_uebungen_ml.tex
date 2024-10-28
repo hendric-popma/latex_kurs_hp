@@ -132,8 +132,8 @@
     \clearpage
     % run this in terminal "makeindex main.nlo -s nomencl.ist -o main.nls"
 \mainmatter 	
-	\renewcommand{\arraystretch}{1.3}%make table bigger
-    \input{./uebungen_ml}
+	\renewcommand{\arraystretch}{1.3} %make table bigger
+    \include{./uebungen_ml}
 
 % ----------------------------------------------
 %    \phantomsection
@@ -147,3 +147,34 @@
 
 \end{spacing}
 \end{document}
+
+%\documentclass[12pt,oneside,listof=totoc,paper=a4,headings=small]{scrbook}
+%\usepackage{package}
+%...
+%
+%\begin{document}
+%	\frontmatter 
+%	% ----------------------------------------------
+%	\include{Titel} 			
+%	\tableofcontents 					           
+%	\clearpage
+%	\include{nomenclature}
+%	\printnomenclature
+%	\listoffigures  					 	       
+%	\clearpage
+%	\listoftables						           
+%	\clearpage
+%	% ----------------------------------------------
+%	\mainmatter 	
+%	\renewcommand{\arraystretch}{1.3} 
+%	\include{kapitel1}
+%	...
+%	% ----------------------------------------------
+%	\printbibliography
+%	\backmatter 
+%	\appendix
+%	\include{anhang}
+%\end{document}
+
+
+
