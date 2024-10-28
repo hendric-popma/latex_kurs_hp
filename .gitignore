@@ -10,7 +10,8 @@
 *.fot
 *.cb
 *.cb2
-.*.lb
+*.lb
+*.nlo
 
 ## Intermediate documents:
 *.dvi
