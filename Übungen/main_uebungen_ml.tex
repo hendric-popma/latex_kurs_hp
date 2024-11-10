@@ -1,4 +1,3 @@
-%\documentclass[12pt,oneside,listof=totoc,paper=a4,headings=small]{scrbook}
 \documentclass[12pt, oneside, listof=nochaptergap, listof=totoc, listof=entryprefix, paper=a4, headings=small, bibliography=totoc, numbers=noenddot]{scrbook}
 %numbers = no point behinder chapter etc
 % -----------------------------------
@@ -11,11 +10,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[babel=true, german=quotes]{csquotes}
 \usepackage{url}
-%\usepackage{listings}
 \usepackage[hidelinks]{hyperref} 			
 \usepackage{enumerate}
 \usepackage{setspace}
-%\usepackage{parskip}
 
 
 \usepackage[intoc, german]{nomencl}
@@ -25,24 +22,14 @@
 \ifthenelse{\equal{#1}{A}}{\item[\textbf{Abkürzungen}]}{%
 \ifthenelse{\equal{#1}{S}}{\item[\textbf{Variablen \& Symbole}]}{%
 \ifthenelse{\equal{#1}{V}}{\item[\textbf{Variablen}]}{%
-%\ifthenelse{\equal{#1}{G}}{\item[\textbf{Greek symbols}]}{}}}
 }}}}
 \setlength{\nomlabelwidth}{1.5cm}
 \makenomenclature
-%\usepackage{colortbl}
-%\usepackage{array}
-%\usepackage{color}
-%\usepackage{adjustbox}
-%\usepackage{multirow}
 \usepackage{wrapfig}
 \usepackage[toc, page]{appendix}
 \usepackage{enumitem} %abstand bei itemize einstellbar [itemsep=0pt]
 
 \setlength\parindent{0pt} %verhindert das Einrücken am Anfang
-
-%%%%% Kopfzeile ändern 
-% Quelle vor dem Punkt
-%%%%%
 
 % Kopfzeile
 \usepackage[headsepline,manualmark]{scrlayer-scrpage} %plainheadsepline
@@ -55,7 +42,6 @@
 \usepackage[left=35mm,right=15mm,top=30mm,bottom=25mm]{geometry}
 
 %% Literatur
-%\usepackage[style = numeric, labelnumber, defernumbers = true, backend = biber, autocite=inline, sorting = none]{biblatex}
 \usepackage[backend=biber,style=numeric, sorting=none]{biblatex}
 \bibliography{./literatur/quellen_citavi}
 %  rm -rf `biber --cache`   clear cache
@@ -64,27 +50,24 @@
 
 % Grafiken
 \usepackage{graphicx} 				
-%\graphicspath{{./abbildungen/}}  
-%\usepackage[labelfont=footnotesize, textfont=sf, textfont=footnotesize]{caption}      
 %\renewcommand{\thefigure}{\arabic{figure}} % Aufzählung bei Caption nur die Nummer ohne Kapitel 
 \graphicspath{{./abbildungen/}}
 \usepackage[labelfont=footnotesize, textfont=sf, textfont=footnotesize]{caption}
 \captionsetup[table]{belowskip=10pt} %abstand unter der Tabellenüberschrift 
-
 %Infos zu Caption https://www.namsu.de/Extra/pakete/Caption.html 
 \usepackage{subfigure}   
 \usepackage{float}
-%change caption
 
+%change caption
 %\counterwithout{figure}{chapter}%Aufzählung über ganzes Dokument
 %\counterwithout{table}{chapter} %Aufzählung über ganzes Dokument
 %\counterwithout{equation}{chapter} 
 %\renewcommand{\thetable}{\arabic{table}}
 %\renewcommand{\thefigure}{\arabic{figure}} % Aufzählung bei Caption nur die Nummer ohne Kapitel 
 
-\usepackage{lscape} %use for turn page xltabular
-%\begin{landscape}
-%\end{landscape}
+\usepackage{lscape} %use for turn page 
+	%\begin{landscape}
+	%\end{landscape}
 
 % Tabellen
 \usepackage{multirow}
@@ -93,24 +76,10 @@
 \usepackage{tabularx} %makes table over hole page begin{tabularx}{\textwidth}{|X|}
 \usepackage{float} %fügt neue figure optionen hinzu z.B. [H]
 \usepackage[table]{xcolor} %\rowcolor{lightgray} make colors in table
-%\usepackage{spreadtab}
 
 % Koma-Script Kompatibilität
 %\usepackage{scrhack}
 
-% Überschriften
-%\usepackage{titlesec}
-%\titleformat{\section}
-%{\normalfont\Large\bfseries}{\thesection}{1em}{}
-%\titleformat{\subsection}
-%{\normalfont\large\bfseries}{\thesubsection}{1em}{}
-%\titleformat{\subsubsection}
-%{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
-%\titleformat{\paragraph}[runin]
-%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-%\titleformat{\subparagraph}[runin]
-%{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
-%\usepackage{todonotes}
 \usepackage{color,soul}%nomenclature
 \usepackage{eurosym}
 % Das Dokument selbst mit seinen Bestandteilen
@@ -119,12 +88,9 @@
 \begin{spacing}{1.3}
 \frontmatter 
 % ----------------------------------------------
-%    \include{./bestandteile/titel} 			
-%    \include{./bestandteile/erklaerung}
-%    \include{./bestandteile/abstract} 
    \tableofcontents 					           
     \clearpage
-%    \include{./bestandteile/nomenclature}
+    \include{./bestandteile/nomenclature}
     \printnomenclature
     \listoffigures  					 	       
     \clearpage
@@ -134,47 +100,11 @@
 \mainmatter 	
 	\renewcommand{\arraystretch}{1.3} %make table bigger
     \include{./uebungen_ml}
-
 % ----------------------------------------------
-%    \phantomsection
-%    \addcontentsline{toc}{chapter}{Literatur}
     \sloppy
     \printbibliography
  \backmatter 
 	\appendix
-%	\input{./bestandteile/08_anhang}
-
-
 \end{spacing}
 \end{document}
-
-%\documentclass[12pt,oneside,listof=totoc,paper=a4,headings=small]{scrbook}
-%\usepackage{package}
-%...
-%
-%\begin{document}
-%	\frontmatter 
-%	% ----------------------------------------------
-%	\include{Titel} 			
-%	\tableofcontents 					           
-%	\clearpage
-%	\include{nomenclature}
-%	\printnomenclature
-%	\listoffigures  					 	       
-%	\clearpage
-%	\listoftables						           
-%	\clearpage
-%	% ----------------------------------------------
-%	\mainmatter 	
-%	\renewcommand{\arraystretch}{1.3} 
-%	\include{kapitel1}
-%	...
-%	% ----------------------------------------------
-%	\printbibliography
-%	\backmatter 
-%	\appendix
-%	\include{anhang}
-%\end{document}
-
-
 
