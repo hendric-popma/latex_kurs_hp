@@ -1,0 +1,121 @@
+\documentclass[12pt, oneside, listof=nochaptergap, listof=totoc, listof=entryprefix, paper=a4, headings=small, bibliography=totoc, numbers=noenddot]{scrbook}
+	%numbers = no point behinder chapter etc
+% -----------------------------------
+\AfterTOCHead[lof]{\def\autodot{:}}% macht : in Abbildungsverzeichnis
+\AfterTOCHead[lot]{\def\autodot{:}}
+% Allgemeine Formatierungen
+\usepackage[ngerman]{babel}
+%\usepackage[english]{babel}
+\usepackage[utf8]{inputenc} 	
+\usepackage[T1]{fontenc}
+\usepackage[babel=true, german=quotes]{csquotes}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref} 			
+\usepackage{enumerate}
+\usepackage{setspace}
+
+
+\usepackage[intoc, german]{nomencl}
+\usepackage{ifthen}
+\renewcommand{\nomname}{Nomenklatur}
+\renewcommand{\nomgroup}[1]{%
+\ifthenelse{\equal{#1}{A}}{\item[\textbf{Abkürzungen}]}{%
+\ifthenelse{\equal{#1}{S}}{\item[\textbf{Variablen \& Symbole}]}{%
+\ifthenelse{\equal{#1}{V}}{\item[\textbf{Variablen}]}{%
+}}}}
+\setlength{\nomlabelwidth}{1.5cm}
+\makenomenclature
+\usepackage{wrapfig}
+\usepackage[toc, page]{appendix}
+\usepackage{enumitem} %abstand bei itemize einstellbar [itemsep=0pt]
+
+\setlength\parindent{0pt} %verhindert das Einrücken am Anfang
+
+% Kopfzeile
+\usepackage[headsepline,manualmark]{scrlayer-scrpage} %plainheadsepline
+\clearpairofpagestyles
+\ohead{\pagemark} % * sorgt für Angaben auch auf Seiten mit Überschrift
+\ihead{\headmark}
+\automark{chapter}
+\pagestyle{scrheadings}
+% Seitenspiegel
+\usepackage[left=35mm,right=15mm,top=30mm,bottom=25mm]{geometry}
+
+%% Literatur
+\usepackage[backend=biber,style=numeric, sorting=none]{biblatex}
+\bibliography{./literatur/quellen_citavi}
+%  rm -rf `biber --cache`   clear cache
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Grafiken
+\usepackage{graphicx} 				   
+\graphicspath{{./abbildungen/}}
+\usepackage[labelfont=footnotesize, textfont=sf, textfont=footnotesize]{caption}
+\captionsetup[table]{belowskip=10pt} %abstand unter der Tabellenüberschrift 
+%\renewcommand{\thefigure}{\arabic{figure}} % Aufzählung bei Caption nur die Nummer ohne Kapitel
+%Infos zu Caption https://www.namsu.de/Extra/pakete/Caption.html 
+
+\usepackage{subfigure}   
+\usepackage{float}
+
+%change caption
+%\counterwithout{figure}{chapter}%Aufzählung über ganzes Dokument
+%\counterwithout{table}{chapter} %Aufzählung über ganzes Dokument
+%\counterwithout{equation}{chapter} 
+%\renewcommand{\thetable}{\arabic{table}}
+%\renewcommand{\thefigure}{\arabic{figure}} % Aufzählung bei Caption nur die Nummer ohne Kapitel 
+
+\usepackage{lscape} %use for turn page
+	%\begin{landscape}
+	%\end{landscape}
+
+% Tabellen
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{xltabular} %use for long tables
+\usepackage{tabularx} %makes table over hole page begin{tabularx}{\textwidth}{|X|}
+\usepackage{float} %fügt neue figure optionen hinzu z.B. [H]
+\usepackage[table]{xcolor} %\rowcolor{lightgray} make colors in table
+
+% Koma-Script Kompatibilität
+%\usepackage{scrhack}
+
+\usepackage{color,soul}%nomenclature
+\usepackage{eurosym} %eurozeichen
+
+% Das Dokument selbst mit seinen Bestandteilen
+% --------------------------------------------
+\begin{document}
+\begin{spacing}{1.3}
+\frontmatter 
+% ----------------------------------------------
+    \include{./bestandteile/titel} 			
+    \include{./bestandteile/erklaerung}
+    \include{./bestandteile/abstract} 
+   \tableofcontents 					           
+    \clearpage
+    \include{./bestandteile/nomenclature}
+    \printnomenclature
+    \listoffigures  					 	       
+    \clearpage
+    \listoftables						           
+    \clearpage
+    % run this in terminal "makeindex main.nlo -s nomencl.ist -o main.nls" change "main" to name of the doc"
+\mainmatter 	
+	\renewcommand{\arraystretch}{1.3}%make table bigger
+    \input{./bestandteile/01_einleitung}
+    \input{./bestandteile/02_grundlagen}
+    \input{./bestandteile/03_methodik}
+    \input{./bestandteile/04_auswertung}
+    \input{./bestandteile/05_sensitivitätsanalyse}
+    \input{./bestandteile/06_Diskussion}
+    \input{./bestandteile/07_zusammenfassung}
+% ----------------------------------------------
+    \sloppy
+    \printbibliography
+ \backmatter 
+	\appendix
+	\input{./bestandteile/08_anhang}
+\end{spacing}
+\end{document}

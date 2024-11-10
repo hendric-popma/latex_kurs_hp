@@ -1,0 +1,18 @@
+\chapter{Anhang}
+\label{appendix:A}
+\pagenumbering{roman}
+\setcounter{page}{9}
+\renewcommand\thesection{\Alph{section}}
+%\renewcommand\thesubsection{\Alph{subsection}}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\renewcommand{\thetable}{A.\arabic{table}}
+
+%remove section from toc with \tocless
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+
+\tocless\section{Inhalt digitaler Anhang}
+
+
+\tocless\section{Tabellen}

@@ -1,0 +1,67 @@
+% Titelseite soll keine Kopf oder Fußzeile haben
+\thispagestyle{empty}
+
+
+% mit vspace Platzhalter einstellen
+\vspace*{-10mm}
+
+%Firmen oder Projektlogo einbinden
+\begin{minipage}[t]{0.5\textwidth}
+	\begin{flushleft}
+		\includegraphics[width=0.75\textwidth]{./abbildungen/heatshift_logo.pdf}
+	\end{flushleft}
+\end{minipage}
+\hfill%
+%Einbindung Hochschullogo
+\begin{minipage}[t]{0.5\textwidth}% adapt widths of minipages to your needs
+	\begin{flushright}
+		\includegraphics[width=0.75\textwidth]{./abbildungen/LogoHS.png}
+	\end{flushright}
+\end{minipage}
+
+\vspace*{3.5cm}
+
+% Alle Elemente sollen zentriert sein
+\begin{center}
+% Art der Arbeit => (Bachelorarbeit, Masterarbeit, Seminararbeit)
+{\Large \textbf{Bachelorarbeit}}\\ 
+
+\vspace*{1cm}
+
+{\large Studiengang Energie- und Umwelttechnik (B. Eng.)\\[1mm]}
+
+\vspace{1cm}
+
+%{\Large \bfseries\colorbox{yellow}{Vorläufige Version 27.02.24}\\}
+% Titel der Arbeit 
+{\Large \bfseries Titel der Arbeit\\}
+
+
+\vspace{1.5cm}
+
+% Name des/der Autors/Autoren 
+{\large Name}\\
+%Matrikelnummer des/der Autors/Autoren
+{\large Matrikelnr.: XXXXXX}\\[30mm]
+
+\end{center}
+\vfill
+
+% Aufgabensteller, Kontaktdaten und Abgabetermin
+\parbox{120mm}{
+\begin{tabbing}
+Aufgabensteller/Prüfer \hspace{.7cm} \= Prof. Dr.\\
+Arbeit vorgelegt am                  \> 01.03.2024 \\
+durchgeführt in der                  \> Fakultät Maschinenbau\\[4mm]
+% falls der praktische Teil der Arbeit in einer Firma durchgeführt wurde.
+%durchgeführt bei                     \>  \\
+%                                    \>  \\
+%                                    \>   \\
+%Betreuer                            \>  \\
+%                                    \> \\[4mm] 
+Anschrift des Verfassers          \> Adresse, Plz  \\
+                                    \> student@stud.hs-kempten.de \\
+% Die Nennung des Betreuers ist freiwillig und mit diesem abzustimmen
+\end{tabbing}
+}
+
