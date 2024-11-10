@@ -1,0 +1,78 @@
+\documentclass[12pt, oneside, listof=nochaptergap, listof=totoc, listof=entryprefix, paper=a4, headings=small]{scrbook}
+%bevor totoc= Verzeichnise im toc, now nochaptergap -> keine lücken in listof...; entryprefix macht "Abbildung" ins Abbildunsgverzeichnis auch tabellen
+\AfterTOCHead[lof]{\def\autodot{:}}% macht : in Abbildungsverzeichnis
+\AfterTOCHead[lot]{\def\autodot{:}}
+\usepackage[T1]{fontenc} % Schriftdarstellung und Sonderzeichen
+\usepackage[utf8]{inputenc} % Schriftdarstellung und Sonderzeichen
+\usepackage[ngerman]{babel} %Ändert die Packages auf Deutsch
+\usepackage{enumerate} %\begin{enumerate}[\bfseries 1.] macht 1. fett
+\usepackage{graphicx}
+\usepackage[left=25mm, right=25mm, top=32.5mm, bottom=20mm]{geometry} % Einstellungen der Setenbreite etc
+
+%\usepackage{wrapfig}%text around grafics
+\graphicspath{{./Abbildungen/}}
+\usepackage[labelfont=footnotesize, textfont=sf, textfont=footnotesize]{caption}
+%Infos zu Caption https://www.namsu.de/Extra/pakete/Caption.html 
+\usepackage{subfigure}   
+\usepackage{float}
+%change caption
+\counterwithout{figure}{chapter}%Aufzählung über ganzes Dokument
+\counterwithout{table}{chapter} %Aufzählung über ganzes Dokument
+\counterwithout{equation}{chapter} 
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}} % Aufzählung bei Caption nur die Nummer ohne Kapitel 
+
+% Kopfzeile
+\usepackage[headsepline,plainheadsepline, manualmark]{scrlayer-scrpage}
+\usepackage{lastpage}
+\clearpairofpagestyles
+\pagestyle{scrheadings}
+\ihead*{\includegraphics[width=0.2\textwidth]{Abbildungen/hs_logo_web.jpg}} %Bild HS
+\chead*{Funktionsbeschreibung \\ Wärmenetz} %Titel 
+\ohead*{Hendric Popma} %Mein Name
+%\ofoot*{Seite \pagemark \, von \pageref{LastPage}} %Seite
+\ofoot*{\pagemark}
+\ifoot*{} %Zukes
+\addtokomafont{pageheadfoot}{\upshape}
+%tabellen
+\usepackage{multirow}
+\usepackage{makecell}
+%\usepackage{ltablex}
+\usepackage{xltabular} %use for long tables
+\usepackage{tabularx} %makes table over hole page begin{tabularx}{\textwidth}{|X|}
+
+%Zitieren
+\usepackage[babel=true, german=quotes]{csquotes}
+\usepackage[backend=biber,style=numeric, sorting=none]{biblatex} %bibtex alternative biber
+\bibliography{Quellen.bib}
+
+\setlength\parindent{0pt} %verhindert das Einrücken am Anfang
+\usepackage[hidelinks]{hyperref} %hidelinks no marks in color
+\usepackage{url}
+%math symbols
+\usepackage{gensymb}
+\usepackage{textcomp}
+\usepackage{amsmath}
+
+%% Bericht %%
+\begin{document}
+	\include{titel}
+	\frontmatter
+	\tableofcontents\thispagestyle{scrheadings}%Seite
+	\pagebreak
+	\begingroup
+	\let\clearpage\relax
+	\listoffigures
+	\listoftables
+	\endgroup
+	%End Abb/Figure on one side
+%	\addtocontents{toc}{\protect\thispagestyle{empty}} %entfernt die Seitenzahl vom Inhaltsverzeichnis
+	\mainmatter
+	\include{funktionsbeschreibung}
+\end{document}
+
+%% pagestyle infos \pagestyle or \thispagestyle
+% plain - Just a plain page number
+% empty - Produces empty heads and feet - no page numbers.
+% headings - Puts running headings on each page. The document style specifies what goes in the headings.
+% myheadings - You specify what is to go in the heading with the \markboth or the \markright commands. 
