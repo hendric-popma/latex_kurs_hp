@@ -1,0 +1,52 @@
+% Titelseite soll keine Kopf oder Fußzeile haben
+\thispagestyle{empty}
+
+%logo normal
+\vspace*{-20mm}
+\begin{center}
+   \includegraphics[width=0.8\textwidth]{}
+\end{center}
+\vspace*{2cm}
+%logo seitlich
+begin{textblock*}{80pt}(18cm, 2cm)  % {width of the block}(x,y position)
+	\includegraphics[width=\linewidth,,keepaspectratio]{}
+\end{textblock*}
+
+% Alle Elemente sollen zentriert sein
+\begin{center}
+% Art der Arbeit => (Bachelorarbeit, Masterarbeit, Seminararbeit)
+{\Large \bfseries Projektarbeit im Fach\\} 
+{\Large \bfseries \glqq XXXXXX\grqq \\} 
+
+\vspace*{1cm}
+
+{\large Studiengang XXXXX (M. Sc.)\\[1mm]}
+
+\vspace{1cm}
+
+% Titel der Arbeit 
+{\Large \bfseries Thematik:\\}
+{\Large \bfseries XXXXX \\}
+
+
+\vspace{1.5cm}
+
+% Name des/der Autors/Autoren
+{\large VORNAME NACHNAME}\\[5mm]
+{\large Matrikelnummer: XXXXXXX}\\[10mm]
+
+\end{center}
+\vfill
+
+% Aufgabensteller, Kontaktdaten und Abgabetermin
+\begin{center}
+\parbox{120mm}{
+\begin{tabbing}
+Aufgabensteller/Prüfer \hspace{.7cm} \=  Prof. Dr. XXXX\\
+Arbeit vorgelegt am                  \> XX.XX.XXXX \\
+durchgeführt am                  \> XXXXXX\\[4mm]
+% falls der praktische Teil der Arbeit in einer Firma durchgeführt wurde.
+\end{tabbing}
+}
+\end{center}
+
